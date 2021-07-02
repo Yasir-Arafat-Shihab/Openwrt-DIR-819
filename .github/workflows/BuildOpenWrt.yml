@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@main
 
     - name: Delete Old Releases
-      uses: dev-drprasad/delete-older-releases@v0.1.0
+      uses: Sirherobrine23/delete-older-releases@master
       with:
         delete_tags: true
         keep_latest: 0
@@ -33,7 +33,7 @@ jobs:
     - name: Copiler
       uses: Sirherobrine23/Actions-Build-Openwrt@main
       with:
-        BRANCH: "anlix-openwrt-18.06.5"
+        BRANCH: "feature/alpha"
         URL: "https://github.com/anlix-io/openwrt.git"
         CONFIG: "Dir819.config"
 
