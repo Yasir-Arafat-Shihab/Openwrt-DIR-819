@@ -45,5 +45,5 @@ jobs:
       with:
         name: Build to ${{ env.DEVICE_NAME }}, Run ID ${{ github.run_id }}
         tag_name: ${{ github.run_id }}
-        body_path: ${{ env.BODYFILE }}
+        #body_path: ${{ env.BODYFILE }}
         files: ${{ env.RELEASEFOLDER }}/*
