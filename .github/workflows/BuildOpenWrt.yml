@@ -1,31 +1,20 @@
 name: OpenWrt
 on:
   push:
+    branches:
+      - main
+    paths-ignore:
+      - ".github/**"
   watch:
     types: started
   schedule:
     - cron: 0 15 * */15 *
 
 jobs:
-  deleteOldReleases:
-    runs-on: ubuntu-latest
-    name: Delete old releases
-    steps:
-    - name: Checkout
-      uses: actions/checkout@main
-
-    - name: Delete Old Releases
-      uses: Sirherobrine23/delete-older-releases@master
-      with:
-        delete_tags: true
-        keep_latest: 10
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   DIR819:
     runs-on: ubuntu-latest
-    needs: [deleteOldReleases]
     name: Dlink Dir 819 Rev A1
+    if: github.actor == github.repository_owner
     steps:
     - name: Checkout
       uses: actions/checkout@main
@@ -33,9 +22,9 @@ jobs:
     - name: Copiler
       uses: Sirherobrine23/Actions-Build-Openwrt@main
       with:
-        BRANCH: "feature/alpha"
-        URL: "https://github.com/anlix-io/openwrt.git"
-        CONFIG: "Dir819.config"
+        branch: "feature/alpha"
+        url: "https://github.com/anlix-io/openwrt.git"
+        config: "Dir819.config"
 
     - name: Upload To Releases
       uses: softprops/action-gh-release@v1
@@ -45,5 +34,5 @@ jobs:
       with:
         name: Build to ${{ env.DEVICE_NAME }}, Run ID ${{ github.run_id }}
         tag_name: ${{ github.run_id }}
-        #body_path: ${{ env.BODYFILE }}
+        # body_path: ${{ env.BODYFILE }}
         files: ${{ env.RELEASEFOLDER }}/*

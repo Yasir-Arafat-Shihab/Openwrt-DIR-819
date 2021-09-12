@@ -1,0 +1,3 @@
+[submodule "Post_build/CryptImage"]
+	path = Post_build/CryptImage
+	url = https://github.com/Sirherobrine23/dir819-crypt.git
