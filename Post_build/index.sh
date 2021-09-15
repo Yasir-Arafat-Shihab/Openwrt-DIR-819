@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cd ${Workdir}/Post_build/CryptImage/
+cd ${WORKDIR}/Post_build/CryptImage/
 pwd
 
 if ! [ -z "${OPENWRT_BIN_FACTORY}" ];then
