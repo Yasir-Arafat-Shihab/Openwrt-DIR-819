@@ -1,0 +1,15 @@
+version: "2.1"
+services:
+  dir-819_a1:
+    container_name: dir-819
+    image: sirherobrine23/openwrtbuild-ci:latest
+    volumes:
+      - ./:/home/Workdir
+    environment:
+      GIT_URL: "https://github.com/anlix-io/openwrt.git"
+      BRANCH: "feature/alpha"
+      CONFIG: "Dir819.config"
+      DEPTH: "1"
+      CONTINUE_ON_ERROR: "false"
+      P1_shell: "p1.sh"
+      P2_shell: "p2.sh"
