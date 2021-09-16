@@ -3,12 +3,12 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - ".github/**"
+    paths:
+      - "*.config"
   watch:
     types: started
   schedule:
-    - cron: 0 15 * */15 *
+    - cron: 0 */12 * * */2
 
 jobs:
   DIR819:
