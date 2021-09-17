@@ -34,7 +34,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: Build to ${{ env.DEVICE_NAME }}, Run ID ${{ github.run_id }}
-        tag_name: ${{ github.run_id }}
+        name: Build to ${{ env.DEVICE_NAME }}
+        tag_name: "dir_819-${{ github.run_id }}"
         body_path: ${{ env.BODYFILE }}
-        files: ${{ env.RELEASEFOLDER }}/*
+        files: |
+          ${{ env.RELEASEFOLDER }}/*
+          !${{ env.BODYFILE }}
