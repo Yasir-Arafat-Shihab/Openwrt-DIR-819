@@ -8,7 +8,7 @@ on:
   watch:
     types: started
   schedule:
-    - cron: 0 12 * * */2
+    - cron: 0 12 * * */6
 
 jobs:
   DIR819:
