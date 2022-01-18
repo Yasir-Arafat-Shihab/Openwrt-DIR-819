@@ -9,7 +9,7 @@ DLink and other manufacturers have included a signature system in their routers 
 
 - DLink Firmware [v1.0](files/DIR-819_A1_V1.0_Encrypt.bin) and [v1.02](files/DIR-819_A1_V1.02_Unencrypt.bin)
 
-- OpenWRT flash file (Factory file)
+- OpenWRT flash names includes in the file initramfs-kernel.
 
 ### Steps
 
